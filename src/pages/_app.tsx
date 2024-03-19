@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Fragment>
       <Head>
         <title>Leetcode Clone</title>
-        <meta name="viewport" content="width=device-width, initial-scale-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="./favicon.png" />
         <meta name="description" content="Web application that contains leetcode problems and video solution" />
       </Head>
