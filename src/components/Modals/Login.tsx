@@ -8,7 +8,7 @@ type LoginProps = {
 const Login:FC<LoginProps> = () => {
     
     return (
-        <form className='space-y-6 px-8 pb-6'>
+        <form className='space-y-6 px-6 pb-4'>
             <h3 className='text-xl text-white font-medium'>Sign in to LeetClone</h3>
             <div>
                 <label htmlFor='email' className='text-sm font-medium block mb-2 text-gray-300'>Your email</label>
@@ -28,7 +28,7 @@ const Login:FC<LoginProps> = () => {
             <button className='w-full flex justify-end'>
                 <a href="#" className='text-brand-orange block text-sm hover:underline text-right'>Forgot Password?</a>
             </button>
-            <div className='text-sm font-medium text-gray-500'>
+            <div className='text-sm font-medium text-gray-300'>
             Not registered? <a href='#' className='text-blue-700 hover:underline'>Create account</a>
             </div>
         </form>
