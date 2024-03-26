@@ -1,14 +1,16 @@
+import { authModalAtom } from '@/atoms/authModalAtom';
 import AuthModal from '@/components/Modals/AuthModal';
 import NavBar from '@/components/NavBar/NavBar';
 import Head from 'next/head';
 import React, { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 
 type authProps = {
     
 };
 
 const AuthPage:FC<authProps> = () => {
-    
+	const authModal = useRecoilValue(authModalAtom);
     return (
         <>
         <Head>
@@ -22,7 +24,7 @@ const AuthPage:FC<authProps> = () => {
 				</div>
 			</div>
 		</div>
-		<AuthModal />
+		{authModal.isOpen && <AuthModal />}
         </>
 
         ) 
