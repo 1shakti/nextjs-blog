@@ -4,17 +4,13 @@ import { useSetRecoilState } from "recoil";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/firebase";
 import { useRouter } from "next/router";
+import { signupFormData } from "@/types/userDetails";
 
 type SignUpProps = {};
-interface formData {
-	email: string;
-	display_name: string;
-	password: string;
-}
 
 const SignUp: FC<SignUpProps> = () => {
 	const setAuthModalState = useSetRecoilState(authModalAtom);
-	const [formData, setFormData] = useState<formData>({
+	const [formData, setFormData] = useState<signupFormData>({
 		email: "",
 		display_name: "",
 		password: "",
