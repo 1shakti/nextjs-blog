@@ -5,6 +5,7 @@ import { loginFormData } from "@/types/userDetails";
 import { useRouter } from "next/router";
 import React, { FC, useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import { useSetRecoilState } from "recoil";
 
 type LoginProps = {};
@@ -39,18 +40,22 @@ const Login: FC<LoginProps> = () => {
 		e: React.FormEvent<HTMLFormElement>
 	): Promise<void> => {
         e.preventDefault();
-        if(formData.email === "" && formData.password === "") return alert("All fields are mandatory");
+        if(formData.email === "" && formData.password === "") {
+			toast.info("All fields are mandatory", {position: 'top-center', autoClose: 3000, theme: 'dark'});
+			return;
+		} 
+
         try{
             const newUser = await signInWithEmailAndPassword(formData.email, formData.password);
             if(!newUser) return;
             router.push('/');
         }catch(e:any){
-            alert(e.message);
+			toast.error(e.message, {position: 'top-center', autoClose: 3000, theme: 'dark'});
         }
     };
 
     useEffect(() => {
-        if(error) return alert(error.message);
+        if(error) toast.error(error.message, {position: 'top-center', autoClose: 3000, theme: 'dark'});
     },[error])
 
 	return (

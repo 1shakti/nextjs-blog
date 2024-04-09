@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/firebase";
 import { useRouter } from "next/router";
 import { signupFormData } from "@/types/userDetails";
+import { toast } from "react-toastify";
 
 type SignUpProps = {};
 
@@ -39,8 +40,11 @@ const SignUp: FC<SignUpProps> = () => {
 			formData.email === "" &&
 			formData.display_name === "" &&
 			formData.password === ""
-		)
-			return alert("All fields are mandatory");
+		){
+			toast.info("All fields are mandatory", {position: 'top-center', autoClose: 3000, theme: 'dark'});
+			return;
+		}
+
 		try {
 			const newUser = await createUserWithEmailAndPassword(
 				formData.email,
@@ -49,12 +53,12 @@ const SignUp: FC<SignUpProps> = () => {
 			if (!newUser) return;
 			router.push("/");
 		} catch (e: any) {
-			alert(e.message);
+			toast.error(e.message, {position: 'top-center', autoClose: 3000, theme: 'dark'});
 		}
 	};
 
     useEffect(() => {
-        if(error) alert(error.message)
+        if(error) toast.error(error.message, {position: 'top-center', autoClose: 3000, theme: 'dark'});
     },[error])
 
 	return (

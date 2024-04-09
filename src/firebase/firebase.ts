@@ -6,18 +6,19 @@ import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//console.log("process.env.NEXT_PUBLIC_FIREBASE_API_KEY",process.env.NEXT_PUBLIC_FIREBASE_API_KEY, typeof process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
 const firebaseConfig = {
-  apiKey: "AIzaSyAtI2mMUahy0S4wNOmeqbsEnDjoG-ra7So",
-  authDomain: "leetclone-cedd1.firebaseapp.com",
-  projectId: "leetclone-cedd1",
-  storageBucket: "leetclone-cedd1.appspot.com",
-  messagingSenderId: "617402114103",
-  appId: "1:617402114103:web:c600390beaa58e4cd41fb2"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
-const app = !getApps.length ? initializeApp(firebaseConfig) : getApp();
-
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+console.log("app",app)
 const auth =  getAuth(app);
 const firestore = getFirestore(app);
 

@@ -6,6 +6,7 @@ import Logout from "../buttons/Logout";
 import { useSetRecoilState } from "recoil";
 import { authModalAtom } from "@/atoms/authModalAtom";
 import { authModalState } from "@/types/authModal";
+import Image from "next/image";
 
 type TopBarProps = {};
 
@@ -25,7 +26,7 @@ const TopBar: FC<TopBarProps> = () => {
 		<nav className="relative w-full h-[50px] shrink-0 px-5 bg-dark-layer-1 flex items-center text-dark-gray-7">
 			<div className="flex items-center justify-between w-full max-w-[1200px] mx-auto">
 				<Link href="/" className="h-[22px] flex-1">
-					<img src="logo-full.png" alt="logo" className="h-full" />
+					<Image src="/logo-full.png" alt="logo" height={100} width={100} />
 				</Link>
 				<div className="flex items-center space-x-4 flex-1 justify-end">
 					<div>
@@ -44,7 +45,7 @@ const TopBar: FC<TopBarProps> = () => {
 					)}
 					{user && (
 						<div className="cursor-pointer group relative">
-							<img src="/avatar.png" alt="user profile img" className="h-8 w-8 rounded-full"/>
+							<Image src="/avatar.png" alt="user profile img" width={30} height={30} className='rounded-full' />
 							<div className="absolute bg-dark-layer-1 mx-auto text-brand-orange left-2/4 -translate-x-2/4 top-10 z-40 scale-0 group-hover:scale-100 p-2 rounded shadow-lg transition-all duration-300 ease-in-out">
 								<p className="text-sm">{user.email}</p>
 							</div>
