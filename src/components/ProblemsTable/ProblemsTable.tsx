@@ -74,7 +74,7 @@ const ProblemsTable: FC<ProblemsTableProps> = () => {
 							</th>
 							<td className="px-4 py-6">
 								<Link
-									href={"#"}
+									href={`/problems/${problem.id}`}
 									className=" hover:text-blue-600 cursor-pointer"
 								>
 									{problem.title}
