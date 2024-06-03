@@ -4,6 +4,7 @@ import TopBar from "@/components/TopBar/TopBar";
 export default function Home() {
 	return (
 		<main className="bg-dark-layer-2 min-h-screen">
+
 			<TopBar />
 			<h1 className="text-gray-700 dark:text-gray-400 text-2xl uppercase font-medium text-center mt-10 mb-5">
 				{" "}

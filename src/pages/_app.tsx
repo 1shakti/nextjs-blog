@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="Web application that contains leetcode problems and video solution" />
       </Head>
       <ToastContainer />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </RecoilRoot>
   )
 }
